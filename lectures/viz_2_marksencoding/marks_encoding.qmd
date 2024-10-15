@@ -175,8 +175,21 @@ What happens when...
 
 * Make `precipitation` ordinal
 * Revert. then make `date` temporal. There's a consequential but subtle change relative to the original plot. What is it?
+```{python}
+seattle = vega_data.seattle_weather()
+alt.Chart(seattle).mark_bar().encode(
+    x = 'month(date):O',
+    y = 'average(precipitation):O'
+)
+```
 
-
+```{python}
+seattle = vega_data.seattle_weather()
+alt.Chart(seattle).mark_bar().encode(
+    x = 'month(date):T',
+    y = 'average(precipitation):Q'
+)
+```
 
 ## data types: summary
 
